@@ -10,6 +10,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+//라우트추가
+var routes = require('./app/routes')(app);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
