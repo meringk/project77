@@ -1,36 +1,29 @@
 (function ($) {
 
-	var $window = $(window),
-		$body = $('body'),
-		$toggle = $('.toggle'),
-		$sidebarSection = $('#sidebarSection');
 
-	// Disable animations/transitions until the page has loaded.
-	$body.addClass('is-loading');
+    $("#typed").typed({
+        // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
+        stringsElement: $('#typed-strings'),
+        typeSpeed: 30,
+        backDelay: 500,
+        loop: false,
+        contentType: 'html', // or text
+        // defaults to false for infinite loop
+        loopCount: false,
+        callback: function(){ foo(); },
+        resetCallback: function() { newTyped(); }
+    });
 
-	$window.on('load', function() {
-		window.setTimeout(function() {
-			$body.removeClass('is-loading');
-		}, 100);
-	});
+    $(".reset").click(function(){
+        $("#typed").typed('reset');
+    });
 
-	// sidebar 나타내는 toggle 버튼 flag
-	$toggle[0].onclick = function () {
-		$sidebarSection.toggleClass("inactive");
-		$body.toggleClass("side-on");
-	}
 
-	// click 이벤트 외의 별도의 브라우저 행동을 막는다. (bubble UP막기)
-	$sidebarSection.on('click touchend touchstart touchmove', function (event) {
-		event.stopPropagation();
-	});
-	$toggle.on('click touchend touchstart touchmove', function (event) {
-		event.stopPropagation();
-	});
 
-	// 바디 터치시 사이드바 숨김
-	$body.on('click touchend', function (event) {
-		$sidebarSection.addClass('inactive');
-	});
+    function newTyped(){ /* A new typed object */ }
+
+    function foo(){ console.log("Callback"); }
+
+
 
 })(jQuery);
