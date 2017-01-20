@@ -101,8 +101,6 @@
 			width: 220px;
 		}
 
-
-
 		#banner h2 {
 			-moz-transform: scale(1);
 			-webkit-transform: scale(1);
@@ -301,6 +299,9 @@ backface-visibility: hidden;*/
 			#banner {
 				padding: 0 !important;
 
+			}
+			#banner .inner {
+				margin-top: -100px;
 			}
 
 		}
