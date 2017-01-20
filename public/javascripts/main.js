@@ -1,23 +1,23 @@
 (function ($) {
 
-	var $body = $('body'),
+	var $window = $(window),
+		$body = $('body'),
 		$toggle = $('.toggle'),
 		$sidebarSection = $('#sidebarSection');
 
-	// sidebar 숨김초기화
-	//$sidebarSection.addClass('load');
-	$sidebarSection.css("margin-left", "-245px");
+	// Disable animations/transitions until the page has loaded.
+	$body.addClass('is-loading');
 
+	$window.on('load', function() {
+		window.setTimeout(function() {
+			$body.removeClass('is-loading');
+		}, 100);
+	});
 
-	var flg = true;
 	// sidebar 나타내는 toggle 버튼 flag
 	$toggle[0].onclick = function () {
-		if(flg){
-			$sidebarSection.css("margin-left", "0px");
-			$('#sidebarSection')[0].style.marginLeft=""
-		}
 		$sidebarSection.toggleClass("inactive");
-		flg = false;
+		$body.toggleClass("side-on");
 	}
 
 	// click 이벤트 외의 별도의 브라우저 행동을 막는다. (bubble UP막기)

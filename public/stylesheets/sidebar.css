@@ -15,14 +15,12 @@
 	background-color: #f5f6f7;
 	font-size: 0.9em;
 	position: relative;
-	width: 250px;
-
+	width: 245px;
 }
 
 #sidebarSection.inactive {
-    margin-left: -245px;
+	margin-left: -245px;
 }
-
 
 #sidebarSection .inner{
 	top: 70px;

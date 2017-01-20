@@ -16,6 +16,18 @@ body{
 	overflow-x: hidden;
 }
 
+body.is-loading * {
+	-moz-animation: none !important;
+	-webkit-animation: none !important;
+	-ms-animation: none !important;
+	animation: none !important;
+	-moz-transition: none !important;
+	-webkit-transition: none !important;
+	-ms-transition: none !important;
+	transition: none !important;
+	display:none  !important;
+}
+
 a {
 	-moz-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
