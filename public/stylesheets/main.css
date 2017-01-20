@@ -25,6 +25,15 @@
 
 
 /* code for animated blinking cursor */
+
+	.type-wrap{
+		background-color: #3c3c3c;
+		border-radius: 6px;
+		height: 45px;
+		color: white;
+		text-align: left;
+		padding: 10px;
+	}
         .typed-cursor{
             opacity: 1;
             font-weight: 100;
@@ -59,8 +68,6 @@
             50% { opacity:0; }
             100% { opacity:1; }
         }
-
-		
 
 
 #banner {
