@@ -318,16 +318,18 @@ backface-visibility: hidden;*/
 				background-position-x: -214px;
 			}
 			#banner .inner {
-				margin-top: -100px;
+				    margin-top: -120px;
+				margin-left: -110px;
 				width: 230px;
 			}
 			#banner .more {
 				width: 230px;
+				margin-left: -110px;
 			}
 
 			.side-on #banner .inner{
 				width: 180px;
-				    margin-left: -88px;
+				margin-left: -88px;
 			}
 
 			.side-on #sidebarSection .inner {
