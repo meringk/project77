@@ -336,6 +336,9 @@ backface-visibility: hidden;*/
 				padding-left: 7px;
 			}
 
+			#main > .inner > section {
+				padding: 0px;
+			}
 
 
 		}
