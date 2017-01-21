@@ -106,7 +106,7 @@
 			margin-top: -50px;
 			margin-left: -150px;
 			width: 280px;
-			height: 250px;
+			height: 200px;
 		}
 
 		#banner h2 {
@@ -121,7 +121,7 @@
 			display: inline-block;
 			font-size: 1.75em;
 			opacity: 1;
-			margin: 50px 0px;
+			margin: 35px 0px;
 			padding: 0.35em 1em;
 			position: relative;
 			z-index: 1;
