@@ -8,6 +8,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	    font-family: 'Roboto Slab', serif;
 }
 
 
@@ -33,12 +34,12 @@ a {
 	-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	border-bottom: dotted 1px;
-	color: #5cadb7;
+	color: #4684d4;
 	text-decoration: none;
 }
 
 	a:hover {
-		color: #5cadb7 !important;
+		    color: #0070ff !important;
 		border-bottom-color: transparent;
 	}
 	

@@ -6,7 +6,7 @@
         stringsElement: $('#typed-strings'),
         typeSpeed: 30,
         backDelay: 500,
-        loop: false,
+        loop: true,
         contentType: 'html', // or text
         // defaults to false for infinite loop
         loopCount: false,

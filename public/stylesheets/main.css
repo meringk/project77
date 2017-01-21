@@ -27,11 +27,11 @@
 /* code for animated blinking cursor */
 
 	.type-wrap{
-		background-color: #3c3c3c;
-		border-radius: 6px;
+
+
 		height: 45px;
-		color: white;
-		text-align: left;
+    	color: #2f757d;
+		text-align: center;
 		padding: 10px;
 	}
         .typed-cursor{
@@ -71,6 +71,12 @@
 
 
 #banner {
+		background: url(../images/pic07.jpg);
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		max-width: 100%;
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -89,16 +95,18 @@
 		overflow: hidden;
 		position: relative;
 		text-align: center;
-		
 	}
 
 		#banner .inner{
 			position: Absolute;
+			background-color: rgba(255, 255, 255, 0.64);
+			outline: 4px double #FFFFFF;
+    		outline-offset: 8px;
 			left: 50%;
 			margin-top: -50px;
 			margin-left: -110px;
-			height: 200px;
-			width: 220px;
+			width: 280px;
+			height: 250px;
 		}
 
 		#banner h2 {
@@ -113,6 +121,7 @@
 			display: inline-block;
 			font-size: 1.75em;
 			opacity: 1;
+			margin: 50px 0px;
 			padding: 0.35em 1em;
 			position: relative;
 			z-index: 1;
@@ -127,10 +136,10 @@
 				-webkit-transition-delay: 0.25s;
 				-ms-transition-delay: 0.25s;
 				transition-delay: 0.25s;
-				background: #fff;
+				background: #c5dbec;
 				content: '';
 				display: block;
-				height: 2px;
+				height: 1px;
 				position: absolute;
 				width: 100%;
 			}
@@ -167,9 +176,10 @@
 			-webkit-transform: translateY(-100px);
 			-ms-transform: translateY(-100px);
 			transform: translateY(-100px);
+			color: white;
+    		text-shadow: -3px -1px 2px #000000;
 			border: none;
 			bottom: 0;
-			color: inherit;
 			font-size: 0.8em;
 			height: 8.5em;
 			left: 50%;
@@ -181,23 +191,21 @@
 			position: absolute;
 			text-align: center;
 			text-transform: uppercase;
-			width: 16em;
+			width: 280px;
 			z-index: 1;
 		}
 
 			#banner .more:after {
-				background-image: url("../images/arrow.svg");
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: contain;
-				bottom: 4em;
-				content: '';
+
+				font-family: FontAwesome;
+				content: '\f13a';
 				display: block;
-				height: 1.5em;
+
+				padding-top: 20px;
+				font-size: 20px;
 				left: 50%;
 				margin: 0 0 0 -0.75em;
-				position: absolute;
-				width: 1.5em;
+
 			}
 
 		#banner:after {
@@ -223,6 +231,8 @@
 			top: 0;
 			opacity: 0;
 		}
+
+		
 
 
 body.is-loading #banner h2 {
@@ -261,6 +271,7 @@ body.is-loading #banner:after {
 		min-height: 100vh;
 	}
 	#main {
+	
 		-moz-flex-grow: 1;
 		-webkit-flex-grow: 1;
 		-ms-flex-grow: 1;
@@ -273,9 +284,9 @@ body.is-loading #banner:after {
 	}
 
 		#main > .inner {
-			padding: 0 4em 0.1em 4em ;
-			margin: 0 auto;
-			max-width: 110em;
+			/*padding: 0 4em 0.1em 4em ;*/
+			/*margin: 0 auto;*/
+			/*max-width: 110em;*/
 		}
 
 			#main > .inner > section {
@@ -293,15 +304,36 @@ body.is-loading #banner:after {
 transition: transform 0.5s ease;
 backface-visibility: hidden;*/
 
+		@media screen and (min-width: 1824px) {
+
+			#banner {
+				background-position-y: -112px;
+			}
+		}
 
 		@media screen and (max-width: 736px) {
 
 			#banner {
 				padding: 0 !important;
-
+				background-position-x: -214px;
 			}
 			#banner .inner {
 				margin-top: -100px;
+				width: 230px;
 			}
+			#banner .more {
+				width: 230px;
+			}
+
+			.side-on #banner .inner{
+				width: 180px;
+				    margin-left: -88px;
+			}
+
+			.side-on #sidebarSection .inner {
+				padding-left: 7px;
+			}
+
+
 
 		}
