@@ -1,0 +1,13 @@
+#googleMap {
+    cursor: default;
+    height: 800px;
+    overflow: hidden;
+    position:relative;
+}
+
+
+#main > .inner {
+    padding: 50px 35px;
+}
+
+    	
