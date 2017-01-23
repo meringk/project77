@@ -1,16 +1,23 @@
- if (skel.vars.mobile){
-            alert("모바일");
+     
+     
+     var initLat =  50.146703,
+         initLng =87.462226
+         initZoom = 3;
+     
+        if (skel.vars.mobile){
+            initLat = 50.146703
+            initLng = 87.462226
+            initZoom = 1
         }
 
 
         var map;
         function initMap() {
             map = new google.maps.Map(document.getElementById('googleMap'), {
-                center: { lat: -34.397, lng: 150.644 },
-                zoom: 2
+                center: { lat: initLat, lng: initLng},
+                zoom:initZoom
             });
 
-            console.log(map)
             setMarkers(map);
         }
 
