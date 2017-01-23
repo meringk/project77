@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>MERING</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../stylesheets/common.css" />
+    <link rel="stylesheet" href="../../stylesheets/main.css" />
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Header -->
+                <!-- titleBar -->
+                <div id="titlebarSection"></div>
+            </div>
+        </div>
+
+        <!-- sidebar -->
+        <div id="sidebarSection" class="inactive"></div>
+
+        <div id="map"></div>
+    </div>
+
+    <!-- Scripts -->
+    
+    <script type="text/javascript">
+
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
+    
+    
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVWrulnj4kgmLFsyPfDqiE2tVt2Vz6Y_c&callback=initMap">
+    </script>
+    <script src="../../javascripts/common/jquery.min.js"></script>
+
+
+
+    <script>	
+    (function ($) {
+        $('#titlebarSection').load("/html/titlebar.html");
+    })(jQuery);		
+</script>
+<script>	
+    (function ($) {
+        $('#sidebarSection').load("/html/sidebar.html");
+    })(jQuery);		
+</script>
+<script src="../../javascripts/common/skel.min.js"></script>
+<script src="../../javascripts/common/util.js"></script>
+</body>
+
+</html>
