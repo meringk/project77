@@ -10,3 +10,11 @@
     padding: 50px 35px;
 }
 
+@media screen and (max-width: 736px) {
+    #googleMap {
+        cursor: default;
+        height: 400px;
+        overflow: hidden;
+        position:relative;
+    }
+}
