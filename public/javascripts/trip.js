@@ -29,11 +29,22 @@
                 ['방콕', 13.747427, 100.495992, 1, '방콕곡'],
                 ['홍콩', 22.294200, 114.171576, 2, '홍콩'],
                 ['상하이', 31.229787, 121.471683, 3, '상하이다'],
-                ['후쿠오카', 33.590166, 130.451451, 4, '일본'],
+                ['후쿠오카', 33.590166, 130.451451, 4, '후쿠오카에갔었다.'],
                 ['오사카', 34.666849, 135.501580, 5, '오사카'],
+                ['도쿄', 35.721528, 139.731760, 6, '도쿄'],
+                ['영국', 51.515314, -0.128383, 7, '런던'],
+                ['독일', 49.403864, 8.677218, 8, '하이델베트크'],
+                ['독일', 49.793155, 9.936204, 9, '뷔르츠부르크'],
+                ['독일', 49.452960, 11.082553, 10, '뉘른베르크'],
+                ['스위스', 47.371126, 8.541049, 11, '취리히'],
+                ['스위스', 47.049253, 8.313032, 12, '루체른'],
+
+                
+
             ];
             var zIdx = 0;
-            var g_title="";
+            var prev;
+
             for (var i = 0; i < tripsArr.length; i++) {
                 var trips = tripsArr[i];
 
@@ -43,27 +54,25 @@
                     title: trips[0],
                     zIndex: trips[3],
                     animation: google.maps.Animation.DROP,
-                    draggable:true,
                     title: trips[4]                
                 });
 
-               console.dir(marker);
-                var infowindow = new google.maps.InfoWindow({
-                    content: g_title
-                });
 
                 marker.addListener('click', function () {
-                    console.log(this);
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: this.title
+                    });
+
                     zIdx = this.zIndex;
                     g_title = this.title;
-                    console.log(g_title);
-                   // console.dir( tripsArr[zIdx-1][4] )
-                    this.setPosition(new google.maps.LatLng(latitude, longitude));
-                   infowindow.open();
-                    //infowindow.open(map, marker);
-                });
 
-           
+                    this.setPosition(new google.maps.LatLng(this.position.lat(), this.position.lng()));
+                    infowindow.open(map, this);
+                    if(prev) prev.close();
+                    prev = infowindow;
+
+                });
                
             }
 
