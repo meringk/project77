@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-//라우트추가
 var routes = require('./app/routes')(app);
 
 // view engine setup
@@ -22,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//추가한 라우트 실행하기
+
 routes.init();
 
 // catch 404 and forward to error handler
