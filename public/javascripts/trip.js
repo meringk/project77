@@ -8,7 +8,9 @@ function initMap() {
 
     // INIT MOBILE CENTER OF MAP
     if (skel.vars.mobile) {
-        initZoom = 1
+        initLat = 30.146703;
+        initLng = 70.462226;
+        initZoom = 1;
     }
 
     //CREATE MAP
@@ -19,106 +21,166 @@ function initMap() {
 
     // ACTION MARKER BUG _ TIMEOUT 300
     window.setTimeout(function () {
-        setMarkers(map);
-    }, 300);
+        // fnc(map, t_zoom);  
+        loadInitData(map, 1);
+    }, 400);
+
+    // ZOOM CHANGE ACTION
+    map.addListener('zoom_changed', function () {
+        resetMap(map);
+    });
+
+    // ZOOM CHANGE ACTION
+    map.addListener('dragend', function () {
+        clearMarkers();
+        resetMap(map);
+    });
+
+
 }
-
-
 
 var markers = [];
-function setMarkers(map) {
+var prev_info;
+var prev_marker;
+var tripsArr = [];
+var tripsArr2 = [];
+var fin;
 
+function loadInitData(map, zoom) {
 
-    var tripsArr = []
-    $.get('/trip/selectTripData', function (data) {
-        console.log(data);
-        tripsArr = data;
-        clearMarkers();
-
-        for (var i = 0; i < tripsArr.length; i++) {
-            addMarkerWithTimeout(tripsArr[i], i * 350);
+    $.ajax({
+        url: '/trip/selectTripDataInit',
+        type: 'post',
+        dataType: 'json',
+        data: { zoom: zoom },
+        success: function (data) {
+            drawMarker(data);
         }
-
     });
+}
+function loadData(map, zoom) {
+    
+    var mapBound = getMapBounds(map),
+        startLat = mapBound.slat,
+        startLng = mapBound.slng,
+        endLat = mapBound.elat,
+        endLng = mapBound.elng;
 
-    // var tripsArr = [
-    //     ['방콕', 13.747427, 100.495992, 1, '첫여행지 방콕'],
-    //     ['홍콩', 22.294200, 114.171576, 2, '홍콩'],
-    //     ['상하이', 31.229787, 121.471683, 3, '상하이다'],
-    //     ['후쿠오카', 33.590166, 130.451451, 4, '후쿠오카에갔었다.'],
-    //     ['오사카', 34.666849, 135.501580, 5, '오사카'],
-    //     ['도쿄', 35.721528, 139.731760, 6, '도쿄'],
-    //     ['영국', 51.515314, -0.128383, 7, '런던은춥다'],
-    //     ['독일', 49.403864, 8.677218, 8, '하이델베트크'],
-    //     ['독일', 49.793155, 9.936204, 9, '뷔르츠부르크'],
-    //     ['독일', 49.452960, 11.082553, 10, '뉘른베르크'],
-    //     ['스위스', 47.371126, 8.541049, 11, '취리히'],
-    //     ['스위스', 47.049253, 8.313032, 12, '루체른'],
-    // ];
+    $.ajax({
+        url: '/trip/selectTripData',
+        type: 'post',
+        dataType: 'json',
+        data: { zoom: zoom, startLat: startLat, endLat: endLat, startLng: startLng, endLng: endLng },
+        success: function (data) {
+            drawMarker(data);
+        }
+    });
+}
+function resetMap(map) {
 
+    if (map.getZoom() < 5) {
+        clearMarkers();
+        // fnc(map, t_zoom);  
+        loadData(map, 1);
+    }
 
+    if (map.getZoom() > 4) {
+        clearMarkers();
+        // fnc(map, t_zoom);  
+        loadData(map, 2);
+    }
 }
 
-var prev;
-var prev2;
+function drawMarker(tripsArr) {
+    var fin;
+    window.setTimeout(function () {
+        for (var i = 0; i < tripsArr.length; i++) {
+            if (i == tripsArr.length - 1) fin = "on";
+            addMarkerWithTimeout(tripsArr[i], i * 100, fin);
+        }
+    }, 400);
+}
 
-function addMarkerWithTimeout(trips, timeout) {
-    var myIcon = new google.maps.MarkerImage("/images/marker5.png", null, null, null, new google.maps.Size(40, 40));
-
-    var infowindow = new google.maps.InfoWindow({
-        content: this.title
-    });
-
+function addMarkerWithTimeout(trips, timeout, fin) {
+    var myIcon = new google.maps.MarkerImage("/images/marker4.png", null, null, null, new google.maps.Size(35, 35));
 
     window.setTimeout(function () {
-        console.log("----------------------------")
-        console.log(trips)
-        console.log(trips.t_lat)
-        console.log(trips.t_lng)
 
-         var lat = trips.t_lat *1,
-       lng = trips.t_lng *1
+        //console.log(trips);
 
+        var lat = trips.t_lat * 1,
+            lng = trips.t_lng * 1;
 
+        //CREATE MARKER SPACING TIME 350
         var marker = new google.maps.Marker({
             position: { lat: lat, lng: lng },
             map: map,
             title: trips.t_contry,
             zIndex: trips.t_idx,
             icon: myIcon,
-            animation: google.maps.Animation.DROP,
+            animation: google.maps.Animation.BOUNCE,
             content: trips.t_content
         });
-        markers.push(marker);
 
+
+        //MARKER CLICK ACTION
         marker.addListener('click', function () {
 
             var infowindow = new google.maps.InfoWindow({
-                content: this.content
+                content: this.content,
+                maxWidth: 200
             });
 
             this.setPosition(new google.maps.LatLng(this.position.lat(), this.position.lng()));
             infowindow.open(map, this);
 
-            if (prev) {
-                prev.close();
-                prev2.setAnimation(null);
+            if (prev_info) {
+                prev_info.close();
+                prev_marker.setAnimation(null);
             }
 
             this.setAnimation(google.maps.Animation.BOUNCE);
-            prev2 = this;
-            prev = infowindow;
+            prev_marker = this;
+            prev_info = infowindow;
 
         });
 
+        markers.push(marker);
+
+        if (fin == "on") {
+            for (var i = 0; i < markers.length; i++) {
+                clearAnimation(markers[i], i * 170);
+            }
+        }
 
     }, timeout);
 }
 
+//CLEAR ANIMATION
+function clearAnimation(mark, timeout) {
+    window.setTimeout(function () {
+        mark.setAnimation(null);
+    }, timeout);
+};
 
+//CLEAR MARKERS
 function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
     markers = [];
 }
+
+function getMapBounds(map) {
+    var mapBound = {};
+    mapBound.slat = map.getBounds().getSouthWest().lat();
+    mapBound.slng = map.getBounds().getSouthWest().lng();
+    mapBound.elat = map.getBounds().getNorthEast().lat();
+    mapBound.elng = map.getBounds().getNorthEast().lng();
+
+    if (mapBound.elng > -179 && mapBound.elng < 0) {
+        mapBound.elng = 360 + mapBound.elng;
+    }
+
+    return mapBound;
+};

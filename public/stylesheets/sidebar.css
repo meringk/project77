@@ -183,3 +183,15 @@
 #titleBar .title{
     line-height: 40px;
 }
+
+
+	@media screen and (max-width: 736px) {
+
+		
+			.side-on #sidebarSection .inner {
+				padding-left: 7px;
+			}
+
+
+
+		}

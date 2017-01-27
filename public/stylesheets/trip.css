@@ -7,7 +7,7 @@
 
 
 #main > .inner {
-    padding: 50px 35px;
+    padding: 80px 35px;
 }
 
 @media screen and (max-width: 736px) {
