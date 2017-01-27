@@ -5,7 +5,7 @@ function initMap() {
     var initLat = 50.146703,
         initLng = 87.462226
     initZoom = 3;
-    animation = "";
+    animation = google.maps.Animation.BOUNCE;
 
     // INIT MOBILE CENTER OF MAP
     if (skel.vars.mobile) {
@@ -120,7 +120,7 @@ function addMarkerWithTimeout(trips, timeout, fin) {
             title: trips.t_contry,
             zIndex: trips.t_idx,
             icon: myIcon,
-            animation: animation,
+           // animation: animation,
             content: trips.t_content
         });
 
@@ -141,7 +141,7 @@ function addMarkerWithTimeout(trips, timeout, fin) {
                 prev_marker.setAnimation(null);
             }
 
-            this.setAnimation(google.maps.Animation.BOUNCE);
+            this.setAnimation(animation);
             prev_marker = this;
             prev_info = infowindow;
 
