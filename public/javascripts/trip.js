@@ -141,7 +141,7 @@ function addMarkerWithTimeout(trips, timeout, fin) {
                 prev_marker.setAnimation(null);
             }
 
-            this.setAnimation(animation);
+            this.setAnimation(google.maps.Animation.BOUNCE);
             prev_marker = this;
             prev_info = infowindow;
 
