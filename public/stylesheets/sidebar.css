@@ -147,7 +147,7 @@
 #titleBar {
 	display: block;
 	position: fixed;
-	/*background-color: red;*/
+	background: rgba(255, 255, 255, 0.14);
 	transition: transform 0.5s ease;
 	text-align:center;
     height: 44px;
