@@ -29,6 +29,7 @@ function initMap() {
 
     // ZOOM CHANGE ACTION
     map.addListener('zoom_changed', function () {
+        clearMarkers();
         resetMap(map);
     });
 
@@ -82,6 +83,7 @@ function resetMap(map) {
 
     if (map.getZoom() < 5) {
         clearMarkers();
+        console.log(markers);
         // fnc(map, t_zoom);  
         loadData(map, 1);
     }
@@ -89,6 +91,7 @@ function resetMap(map) {
     if (map.getZoom() > 4) {
         clearMarkers();
         // fnc(map, t_zoom);  
+        console.log(markers);
         loadData(map, 2);
     }
 }
