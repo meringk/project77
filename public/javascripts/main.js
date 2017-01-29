@@ -169,6 +169,8 @@
         // Guestbook.
         $('#three')
             .scrollex({
+                top: '30vh',
+                bottom: '30vh',
                 delay: 50,
                 initialize: function () {  $('.guestbook').addClass('inactive'); },
                 terminate: function () {  $('.guestbook').removeClass('inactive'); },
