@@ -335,6 +335,11 @@ body.is-loading #banner:after {
 
 }
 
+	#two header{
+		text-align: center;
+		margin: 40px 0px;
+	}
+
 
 
 #tree{
@@ -427,7 +432,7 @@ body.is-loading #banner:after {
 		flex-wrap: wrap;
 		/*width: 45em;*/
 		max-width:  45em;
-		margin: 0 auto;
+		margin: 90px auto;
 	}
 
 		.gallery article {
@@ -506,7 +511,7 @@ body.is-loading #banner:after {
 		#three header {
 			position: relative;
 			left: 50%;
-			margin-left: -65px;
+			margin: 40px 0px 40px -65px;
 		}
 		.guestbook  {
 			 position: relative;
