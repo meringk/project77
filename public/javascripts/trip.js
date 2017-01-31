@@ -1,5 +1,6 @@
 var map;
 var animation;
+var init;
 function initMap() {
     // INIT CENTER OF MAP
     var initLat = 50.146703,
@@ -50,7 +51,7 @@ var tripsArr2 = [];
 var fin;
 
 function loadInitData(map, zoom) {
-
+    init=true;
     $.ajax({
         url: '/trip/selectTripDataInit',
         type: 'post',
@@ -98,12 +99,15 @@ function resetMap(map) {
 
 function drawMarker(tripsArr) {
     var fin;
+    if(init) timeFlg=100;
+    else timeFlg=1;
     window.setTimeout(function () {
         for (var i = 0; i < tripsArr.length; i++) {
             if (i == tripsArr.length - 1) fin = "on";
-            addMarkerWithTimeout(tripsArr[i], i * 100, fin);
+            addMarkerWithTimeout(tripsArr[i], i * timeFlg, fin);
         }
     }, 400);
+    init=false;
 }
 
 function addMarkerWithTimeout(trips, timeout, fin) {
