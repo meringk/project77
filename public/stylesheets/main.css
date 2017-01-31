@@ -332,7 +332,7 @@ body.is-loading #banner:after {
 	justify-content: center; 
     -moz-justify-content: center;
     -ms-justify-content: center;
-    height: 100vh;
+
 }
 
 
