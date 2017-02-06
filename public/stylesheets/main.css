@@ -696,3 +696,79 @@ body.is-loading #banner:after {
 /* -webkit-transform: translateX(275px); 
 transition: transform 0.5s ease;
 backface-visibility: hidden;*/
+
+
+
+.js-mindmap-active a.node {
+    background:gray;
+    border: 2px solid white;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;    
+}
+.js-mindmap-active a.node.active {
+    padding:5px 10px !important;
+    border-width:5px !important;
+}
+.js-mindmap-active a.node.activeparent {
+    padding:5px 10px !important;
+    border-width:5px !important;
+    background:#8B0000;
+}
+
+
+/*
+.js-mindmap-active a.node {
+background:red;
+border: 2px solid white;
+-webkit-border-radius: 60px;
+-moz-border-radius: 60px;
+border-radius: 60px;
+width: 120px;
+height: 60px;
+padding: 30px 0px;
+text-align:center;
+}
+.js-mindmap-active a.node.active {
+border-width:5px !important;
+}
+.js-mindmap-active a.node.activeparent {
+border-width:5px !important;
+background:#8B0000;
+}
+
+*/
+.js-mindmap-active .node.orange {
+  background:#f89a3a; 
+}
+.js-mindmap-active .node.green {
+  background:#92c63d; 
+}
+.js-mindmap-active .node.blue {
+  background:#4688c2; 
+}
+.js-mindmap-active .node.purple {
+  background:#6b5ba6; 
+}
+.js-mindmap-active .node.red {
+  background:#c64d44; 
+}
+
+
+	.closebtn {
+   		margin-left: 15px;
+   		color: white;
+   		font-weight: bold;
+   		float: right;
+   		font-size: 22px;
+   		line-height: 20px;
+   		cursor: pointer;
+   		transition: 0.3s;
+	}
+
+	.closebtn:hover {
+   		color: black;
+	}

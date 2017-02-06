@@ -166,6 +166,10 @@
                 leave: function () { $(this).addClass('inactive'); }
             });
 
+            
+        
+
+
         // Guestbook.
         $('#three')
             .scrollex({
@@ -181,6 +185,8 @@
                  },
                 leave: function () {  $('.guestbook').addClass('inactive'); }
             });
+
+
 
 
     };
