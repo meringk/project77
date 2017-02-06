@@ -322,6 +322,9 @@ body.is-loading #banner:after {
 		text-align: center;
 }
 
+#one .more{
+	     border: none; 
+}
 #two{
     display: -moz-flex;
     display: -ms-flex;

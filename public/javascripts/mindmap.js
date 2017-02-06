@@ -47,6 +47,12 @@ for (var i = 0; i < nodes.length; i++) {
     };
 };
 
+var boxPoX = -190;
+
+if (skel.vars.mobile) {
+        boxPoX = 0;
+    }
+
 
 var myChart = d3.select('#mindmap')
     .append("div")
@@ -54,7 +60,7 @@ var myChart = d3.select('#mindmap')
 
     .append('svg')
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "-190 150 1000 570")
+    .attr("viewBox", boxPoX +" 150 1000 570")
     .classed("svg-content-responsive", true)
 
 
