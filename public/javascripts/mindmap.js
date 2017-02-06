@@ -1,19 +1,13 @@
 
-
-
-
-
-
-
-
-
-
-
-
 var w = 1000,
     h = 879,
     circleWidth = 2;
 
+var boxPoX = -190;
+
+if (skel.vars.mobile) {
+    boxPoX = 0;
+}
 
 var palette = {
     "lightgray": "#E5E8E8",
@@ -25,14 +19,14 @@ var palette = {
 var colors = d3.scale.category20();
 
 var nodes = [
-    { name: "Skills" },
-    { name: "HTML5", target: [0], value: 58 },
-    { name: "CSS3", target: [0], value: 65 },
-    { name: "Scss", target: [0], value: 52 },
-    { name: "Compass", target: [0], value: 48 },
-    { name: "Susy", target: [0, 3, 4], value: 40 },
-    { name: "Breakpoints", target: [0, 3, 4, 5], value: 36 },
-    { name: "jQuery", target: [0, 1, 2], value: 52 },
+    { name: "Skills", etc:"34235" },
+    { name: "HTML5", target: [0], value: 58, etc:"34235" },
+    { name: "CSS3", target: [0], value: 65, etc:"34235" },
+    { name: "Scss", target: [0], value: 52, etc:"34235" },
+    { name: "Compass", target: [0], value: 48, etc:"34235" },
+    { name: "Susy", target: [0, 3, 4], value: 40, etc:"34235" },
+    { name: "Breakpoints", target: [0, 3, 4, 5], value: 36 , etc:"34235"},
+    { name: "jQuery", target: [0, 1, 2], value: 52 , etc:"34235"},
 ];
 
 var links = [];
@@ -47,11 +41,7 @@ for (var i = 0; i < nodes.length; i++) {
     };
 };
 
-var boxPoX = -190;
 
-if (skel.vars.mobile) {
-        boxPoX = 0;
-    }
 
 
 var myChart = d3.select('#mindmap')
@@ -114,10 +104,15 @@ node.append('circle')
         } else {
             return 'black';
         }
-    });
+    })
+    .attr('cursor',function (d, i) {
+        return 'Move';
+    })
+   
 
 
 force.on('tick', function (e) {
+
     node.attr('transform', function (d, i) {
         return 'translate(' + d.x + ',' + d.y + ')'
     })
@@ -127,6 +122,17 @@ force.on('tick', function (e) {
         .attr('y1', function (d) { return d.source.y; })
         .attr('x2', function (d) { return d.target.x; })
         .attr('y2', function (d) { return d.target.y; })
+});
+
+node.on('click', function (e) {
+    console.dir(this.__data__.etc)
+
+    console.dir(link);
+    console.dir(force)
+
+    force 
+      .alpha(0.8)
+
 });
 
 
@@ -154,6 +160,9 @@ node.append('text')
             return '25px';
         }
     })
+    .attr('cursor',function (d, i) {
+        return 'Move';
+    });
 
 force.start();
 
