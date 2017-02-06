@@ -11,8 +11,8 @@
 
 
 var w = 1000,
-    h = 800,
-    circleWidth = 4;
+    h = 879,
+    circleWidth = 2;
 
 
 var palette = {
@@ -54,7 +54,7 @@ var myChart = d3.select('#mindmap')
 
     .append('svg')
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 1000 800")
+    .attr("viewBox", "-190 150 1000 570")
     .classed("svg-content-responsive", true)
 
 
@@ -143,9 +143,9 @@ node.append('text')
     })
     .attr('font-size', function (d, i) {
         if (i > 0) {
-            return '.8em';
+            return '25px';
         } else {
-            return '.9em';
+            return '25px';
         }
     })
 
