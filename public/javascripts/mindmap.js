@@ -1,12 +1,19 @@
 
+
 var w = 1000,
     h = 879,
     circleWidth = 2;
 
-var boxPoX = -190;
+var boxPo = "0 150 1000 570",
+    circle_s = 40,
+    circle_m = 50,
+    circle_l = 60
 
 if (skel.vars.mobile) {
-    boxPoX = 0;
+    boxPo = "150 100 700 1000";
+    circle_s = 50,
+        circle_m = 60,
+        circle_l = 80
 }
 
 var palette = {
@@ -19,14 +26,15 @@ var palette = {
 var colors = d3.scale.category20();
 
 var nodes = [
-    { name: "Skills", etc:"34235" },
-    { name: "HTML5", target: [0], value: 58, etc:"34235" },
-    { name: "CSS3", target: [0], value: 65, etc:"34235" },
-    { name: "Scss", target: [0], value: 52, etc:"34235" },
-    { name: "Compass", target: [0], value: 48, etc:"34235" },
-    { name: "Susy", target: [0, 3, 4], value: 40, etc:"34235" },
-    { name: "Breakpoints", target: [0, 3, 4, 5], value: 36 , etc:"34235"},
-    { name: "jQuery", target: [0, 1, 2], value: 52 , etc:"34235"},
+    { name: "Skills", target: [0], etc: "34235" },
+    { name: "Personal", target: [1], etc: "34235" },
+    { name: "AWS", target: [0], value: 70, etc: "34235" },
+    { name: "HTML5", target: [0], value: 70, etc: "34235" },
+    { name: "CSS3", target: [0], value: circle_l, etc: "323535" },
+    { name: "jQuery", target: [0], value: circle_m, etc: "34235" },
+    { name: "TRIP", target: [1], value: circle_m, etc: "34235" },
+    { name: "ALCHOLE", target: [1], value: circle_m, etc: "34235" },
+    { name: "CALENDAR", target: [1], value: circle_m, etc: "34235" },
 ];
 
 var links = [];
@@ -43,14 +51,12 @@ for (var i = 0; i < nodes.length; i++) {
 
 
 
-
 var myChart = d3.select('#mindmap')
     .append("div")
     .classed("svg-container", true)
-
     .append('svg')
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", boxPoX +" 150 1000 570")
+    .attr("viewBox", boxPo)
     .classed("svg-content-responsive", true)
 
 
@@ -63,7 +69,7 @@ var force = d3.layout.force()
 
 var link = myChart.selectAll('line')
     .data(links).enter().append('line')
-    .attr('stroke', palette.lightgray)
+    .attr('stroke', '#dadada')
     .attr('strokewidth', '1');
 
 var node = myChart.selectAll('circle')
@@ -71,44 +77,44 @@ var node = myChart.selectAll('circle')
     .append('g')
     .call(force.drag);
 
-
+var colorInfo = ["white", "white", "#9b59b6", "#1abc9c", "#2ecc71", "#3498db", "#f1c40f", "#f39c12", "#d35400"];
 node.append('circle')
     .attr('cx', function (d) { return d.x; })
     .attr('cy', function (d) { return d.y; })
     .attr('r', function (d, i) {
-        console.log(d.value);
-        if (i > 0) {
+        if (i > 1) {
             //원 크기 초기화
             return circleWidth + d.value;
         } else {
-            return circleWidth + 35;
+            return circleWidth + 100;
         }
     })
     .attr('fill', function (d, i) {
-        if (i > 0) {
-            return colors(i);
-        } else {
-            return '#fff';
-        }
+        return colorInfo[i];
+        // if (i > 1) {
+        //     return colorInfo[i];
+        // } else {
+        //     return '#fff';
+        // }
     })
     .attr('strokewidth', function (d, i) {
-        if (i > 0) {
-            return '0';
+        if (i > 1) {
+            return '3';
         } else {
-            return '2';
+            return '4';
         }
     })
     .attr('stroke', function (d, i) {
-        if (i > 0) {
+        if (i > 1) {
             return '';
         } else {
-            return 'black';
+            return '#dadada';
         }
     })
-    .attr('cursor',function (d, i) {
+    .attr('cursor', function (d, i) {
         return 'Move';
     })
-   
+
 
 
 force.on('tick', function (e) {
@@ -124,17 +130,50 @@ force.on('tick', function (e) {
         .attr('y2', function (d) { return d.target.y; })
 });
 
+
+ var mindmapInfo = $('#mindmapInfo'),
+        one = $('#one');
 node.on('click', function (e) {
-    console.dir(this.__data__.etc)
 
-    console.dir(link);
-    console.dir(force)
+    //console.log(node[0]);
 
-    force 
-      .alpha(0.8)
+    for (var i = 0; i < 9; i++) {
+        if (node[0][i].__data__.target) {
+            //console.log(node[0][i].__data__.target[0]);
+            //console.dir(node[0][i].childNodes)
+            if (node[0][i].__data__.target[0] != this.__data__.target) {
+                //내가 누른 반대편 타겟을 0.2로 해줌
+                node[0][i].childNodes[0].style.fillOpacity = "0.1";
+                node[0][i].childNodes[1].style.fillOpacity = "0.2";
+            } else {
+                node[0][i].childNodes[0].style.fillOpacity = "1";
+                node[0][i].childNodes[1].style.fillOpacity = "1";
+            }
+        }
+    }
 
+    // console.dir(this.__data__.etc)
+    // console.log(this.__data__.target);
+    // console.dir(this)
+    // console.dir(this.childNodes[0].attributes[1].value);
+    // console.dir(link);
+    // console.dir(force);
+
+
+   
+    
+    force
+        .alpha(0.8)
+
+    mindmapInfo.addClass("mindmapInfo_on");
+    mindmapInfo[0].style.backgroundColor = this.childNodes[0].attributes[1].value;
+    //one[0].style.backgroundColor = this.childNodes[0].attributes[1].value;
+    //one[0].style.fillOpacity= "0.1";
+
+
+
+    mindmapInfo[0].innerHTML = this.__data__.etc
 });
-
 
 
 node.append('text')
@@ -142,9 +181,9 @@ node.append('text')
     .attr('font-family', 'Raleway', 'Helvetica Neue, Helvetica')
     .attr('fill', function (d, i) {
         console.log(d.value);
-        if (i > 0 && d.value < 10) {
+        if (i > 1 && d.value < 10) {
             return palette.mediumgray;
-        } else if (i > 0 && d.value > 10) {
+        } else if (i > 1 && d.value > 10) {
             return palette.lightgray;
         } else {
             return palette.blue;
@@ -154,13 +193,13 @@ node.append('text')
         return 'middle';
     })
     .attr('font-size', function (d, i) {
-        if (i > 0) {
-            return '25px';
+        if (i > 1) {
+            return '20px';
         } else {
-            return '25px';
+            return '50px';
         }
     })
-    .attr('cursor',function (d, i) {
+    .attr('cursor', function (d, i) {
         return 'Move';
     });
 
@@ -171,6 +210,21 @@ force.start();
 $('#two')
     .scrollex({
         leave: function () {
-          // console.log(force)
+            // console.log(force)
         }
     });
+
+
+
+//실시간 브라우저 크기에 따라 마인드맵 좌표 수정
+$(window).resize(function () {
+    if (skel.vars.mobile) return;
+    if (window.innerWidth > 1740) {
+        boxPo = "-150 150 1000 570";
+    } else {
+        boxPo = "0 150 1000 570";
+    }
+    myChart
+        .attr("viewBox", boxPo)
+
+}).resize();

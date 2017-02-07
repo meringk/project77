@@ -344,6 +344,39 @@ body.is-loading #banner:after {
 		margin: 40px 0px;
 	}
 
+	#mindmapInfo{
+		position: absolute;
+		top: 59px;
+		left: -280px;
+		width: 243px;
+    	padding: 20px;
+		height: 87px;
+		background-color: rgba(243, 241, 241, 0.71);
+		border-radius: 20px;
+	}
+
+	.mindmapInfo_on{
+		
+		-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
+		-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
+		-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
+		transition: transform 0.75s ease, opacity 0.75s ease;
+
+		-moz-transform: translateX(250px);
+		-webkit-transform: translateX(250px);
+		-ms-transform: translateX(250px);
+		transform: translateX(250px);
+	}
+
+	@media screen and (max-width: 736px) {
+		#mindmap{
+			height: 406px;
+		}
+		#mindmapInfo{
+			
+		}
+	}
+
 
 
 #tree{
