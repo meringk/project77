@@ -4,10 +4,10 @@ var w = 1000,
     h = 879,
     circleWidth = 2;
 
-var boxPo = "0 150 1000 570",
+var boxPo = "0 150 1000 400",
     circle_s = 40,
     circle_m = 50,
-    circle_l = 60
+    circle_l = 50
 
 if (skel.vars.mobile) {
     boxPo = "150 100 700 1000";
@@ -26,15 +26,15 @@ var palette = {
 var colors = d3.scale.category20();
 
 var nodes = [
-    { name: "Skills", target: [0], etc: "34235" },
-    { name: "Personal", target: [1], etc: "34235" },
-    { name: "AWS", target: [0], value: 70, etc: "34235" },
-    { name: "HTML5", target: [0], value: 70, etc: "34235" },
-    { name: "CSS3", target: [0], value: circle_l, etc: "323535" },
-    { name: "jQuery", target: [0], value: circle_m, etc: "34235" },
-    { name: "TRIP", target: [1], value: circle_m, etc: "34235" },
-    { name: "ALCHOLE", target: [1], value: circle_m, etc: "34235" },
-    { name: "CALENDAR", target: [1], value: circle_m, etc: "34235" },
+    { name: "Skills", target: [0], etc: "능력" },
+    { name: "Personal", target: [1], etc: "사생활" },
+    { name: "AWS", target: [0], value: circle_m, etc: "클라우드서버" },
+    { name: "HTML5", target: [0], value: circle_m, etc: "HTML5" },
+    { name: "CSS3", target: [0], value: circle_s, etc: "CSS" },
+    { name: "jQuery", target: [0], value: circle_m, etc: "jQuery" },
+    { name: "TRIP", target: [1], value: circle_m, etc: "여행" },
+    { name: "ALCHOLE", target: [1], value: circle_m, etc: "술" },
+    { name: "CALENDAR", target: [1], value: circle_m, etc: "달력, 일정" },
 ];
 
 var links = [];
@@ -86,7 +86,7 @@ node.append('circle')
             //원 크기 초기화
             return circleWidth + d.value;
         } else {
-            return circleWidth + 100;
+            return circleWidth + 80;
         }
     })
     .attr('fill', function (d, i) {
@@ -131,16 +131,16 @@ force.on('tick', function (e) {
 });
 
 
- var mindmapInfo = $('#mindmapInfo'),
-        one = $('#one');
-node.on('click', function (e) {
+var mindmapInfo = $('#mindmapInfo'),
+    mindmapBack = $('.mindmapBack'),
+    one = $('#one');
 
-    //console.log(node[0]);
+node.on('click', function (e) {
+    force
+        .alpha(0.8)
 
     for (var i = 0; i < 9; i++) {
         if (node[0][i].__data__.target) {
-            //console.log(node[0][i].__data__.target[0]);
-            //console.dir(node[0][i].childNodes)
             if (node[0][i].__data__.target[0] != this.__data__.target) {
                 //내가 누른 반대편 타겟을 0.2로 해줌
                 node[0][i].childNodes[0].style.fillOpacity = "0.1";
@@ -160,19 +160,18 @@ node.on('click', function (e) {
     // console.dir(force);
 
 
-   
-    
-    force
-        .alpha(0.8)
-
     mindmapInfo.addClass("mindmapInfo_on");
     mindmapInfo[0].style.backgroundColor = this.childNodes[0].attributes[1].value;
-    //one[0].style.backgroundColor = this.childNodes[0].attributes[1].value;
+    mindmapInfo[0].style.filter = "alpha(opacity=10)";
+
+    console.log(this.childNodes[0].attributes[1].value)
+    mindmapBack[0].style.backgroundColor = this.childNodes[0].attributes[1].value;
+
     //one[0].style.fillOpacity= "0.1";
 
 
 
-    mindmapInfo[0].innerHTML = this.__data__.etc
+    mindmapInfo[0].innerHTML = "<div>" + this.__data__.etc + "</div>";
 });
 
 
@@ -196,7 +195,7 @@ node.append('text')
         if (i > 1) {
             return '20px';
         } else {
-            return '50px';
+            return '40px';
         }
     })
     .attr('cursor', function (d, i) {

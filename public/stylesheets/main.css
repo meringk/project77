@@ -326,27 +326,17 @@ body.is-loading #banner:after {
 		border: none; 
 	}
 
-#two{
-    display: -moz-flex;
-    display: -ms-flex;
-    -moz-flex-direction: column;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-	justify-content: center; 
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-
-}
-
-	#two header{
-		text-align: center;
-		margin: 40px 0px;
+	#one .major{
+		 position: absolute;
+		top: 102px;
+		left: 50%;
+		width: 100px;
+		margin-left: -51px;
 	}
 
 	#mindmapInfo{
 		position: absolute;
-		top: 59px;
+		top: 120px;
 		left: -280px;
 		width: 243px;
     	padding: 20px;
@@ -368,14 +358,50 @@ body.is-loading #banner:after {
 		transform: translateX(250px);
 	}
 
+	.mindmapBack{
+		opacity: 0.1;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: -1000;
+		padding: 10px;
+    	left: 0;
+    	top: 0;
+	}
+
 	@media screen and (max-width: 736px) {
 		#mindmap{
 			height: 406px;
+			margin-top: 140px;
 		}
 		#mindmapInfo{
-			
+			height: 50px;
+    		top: 125px;
+		}
+		#one .major{
+			top: 76px;
 		}
 	}
+
+#two{
+    display: -moz-flex;
+    display: -ms-flex;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+	justify-content: center; 
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+
+}
+
+	#two header{
+		text-align: center;
+		margin: 40px 0px;
+	}
+
+
 
 
 
