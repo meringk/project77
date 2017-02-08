@@ -145,11 +145,20 @@ node.on('click', function (e) {
                 //내가 누른 반대편 타겟을 0.2로 해줌
                 node[0][i].childNodes[0].style.fillOpacity = "0.1";
                 node[0][i].childNodes[1].style.fillOpacity = "0.2";
+                //console.dir(link);
             } else {
                 node[0][i].childNodes[0].style.fillOpacity = "1";
                 node[0][i].childNodes[1].style.fillOpacity = "1";
             }
+
+            if(link[0][i].__data__.target.target[0] != this.__data__.target){
+                link[0][i].style.stroke = "rgba(239, 239, 239, 0.4)";
+            }else{
+                link[0][i].style.stroke = "rgb(119, 119, 119)";
+                link[0][i].style.strokewidth = "3px";
+            }
         }
+
     }
 
     // console.dir(this.__data__.etc)
