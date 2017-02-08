@@ -29,9 +29,11 @@ var nodes = [
     { name: "Skills", target: [0], etc: "능력" },
     { name: "Personal", target: [1], etc: "사생활" },
     { name: "AWS", target: [0], value: circle_m, etc: "클라우드서버" },
+    { name: "LINUX", target: [0], value: circle_m, etc: "리눅스" },
     { name: "HTML5", target: [0], value: circle_m, etc: "HTML5" },
     { name: "CSS3", target: [0], value: circle_s, etc: "CSS" },
     { name: "jQuery", target: [0], value: circle_m, etc: "jQuery" },
+    { name: "WHO AM I", target: [1], value: circle_m, etc: "나는누구냐" },
     { name: "TRIP", target: [1], value: circle_m, etc: "여행" },
     { name: "ALCHOLE", target: [1], value: circle_m, etc: "술" },
     { name: "CALENDAR", target: [1], value: circle_m, etc: "달력, 일정" },
@@ -77,7 +79,12 @@ var node = myChart.selectAll('circle')
     .append('g')
     .call(force.drag);
 
-var colorInfo = ["white", "white", "#9b59b6", "#1abc9c", "#2ecc71", "#3498db", "#f1c40f", "#f39c12", "#d35400"];
+//var colorInfo = ["white", "white", "#ac74c3", "#e26972", "#1abc9c", "#2ecc71", "#3498db", "#f1c40f", "#f39c12", "#d35400"];
+
+
+var colorInfo = ["white", "white", "#96ceb4", "#ff6f69","#ffcc5c", "#ac74c3", "#e26972", "#1abc9c",  "#f39c12",  "#3498db", "#f1c40f","#d35400"];
+
+
 node.append('circle')
     .attr('cx', function (d) { return d.x; })
     .attr('cy', function (d) { return d.y; })
@@ -139,7 +146,8 @@ node.on('click', function (e) {
     force
         .alpha(0.8)
 
-    for (var i = 0; i < 9; i++) {
+    console.dir(node[0].length)
+    for (var i = 0; i < node[0].length; i++) {
         if (node[0][i].__data__.target) {
             if (node[0][i].__data__.target[0] != this.__data__.target) {
                 //내가 누른 반대편 타겟을 0.2로 해줌
@@ -171,16 +179,12 @@ node.on('click', function (e) {
 
     mindmapInfo.addClass("mindmapInfo_on");
     mindmapInfo[0].style.backgroundColor = this.childNodes[0].attributes[1].value;
-    mindmapInfo[0].style.filter = "alpha(opacity=10)";
 
     console.log(this.childNodes[0].attributes[1].value)
     mindmapBack[0].style.backgroundColor = this.childNodes[0].attributes[1].value;
 
-    //one[0].style.fillOpacity= "0.1";
 
-
-
-    mindmapInfo[0].innerHTML = "<div>" + this.__data__.etc + "</div>";
+    mindmapInfo[0].innerHTML = "<div style='color:black; font-weight:bold'>" + this.__data__.etc + "</div>";
 });
 
 

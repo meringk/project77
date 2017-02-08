@@ -372,7 +372,7 @@ body.is-loading #banner:after {
 	@media screen and (max-width: 736px) {
 		#mindmap{
 			height: 406px;
-			margin-top: 140px;
+			margin-top: 155px;
 		}
 		#mindmapInfo{
 			height: 32px;
