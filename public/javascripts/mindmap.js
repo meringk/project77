@@ -4,7 +4,7 @@ var w = 1000,
     h = 879,
     circleWidth = 2;
 
-var boxPo = "0 150 1000 400",
+var boxPo = "-300 70 900 700",
     circle_s = 40,
     circle_m = 50,
     circle_l = 50
@@ -33,7 +33,7 @@ var nodes = [
     { name: "HTML5", target: [0], value: circle_m, etc: "HTML5" },
     { name: "CSS3", target: [0], value: circle_s, etc: "CSS" },
     { name: "jQuery", target: [0], value: circle_m, etc: "jQuery" },
-    { name: "WHO AM I", target: [1], value: circle_m, etc: "나는누구냐" },
+    { name: "WHO AM I", target: [1], value: circle_m, etc: "나는누구냐 <a href='/#three'>dd</a>" },
     { name: "TRIP", target: [1], value: circle_m, etc: "여행" },
     { name: "ALCHOLE", target: [1], value: circle_m, etc: "술" },
     { name: "CALENDAR", target: [1], value: circle_m, etc: "달력, 일정" },
@@ -192,7 +192,6 @@ node.append('text')
     .text(function (d) { return d.name; })
     .attr('font-family', 'Raleway', 'Helvetica Neue, Helvetica')
     .attr('fill', function (d, i) {
-        console.log(d.value);
         if (i > 1 && d.value < 10) {
             return palette.mediumgray;
         } else if (i > 1 && d.value > 10) {
@@ -227,15 +226,26 @@ $('#two')
     });
 
 
-
 //실시간 브라우저 크기에 따라 마인드맵 좌표 수정
 $(window).resize(function () {
     if (skel.vars.mobile) return;
-    if (window.innerWidth > 1740) {
-        boxPo = "-150 150 1000 570";
-    } else {
-        boxPo = "0 150 1000 570";
+    var windowSize = window.innerWidth *1;
+    console.log(window.innerWidth);
+
+    if ( windowSize > 1660) {
+        console.log("l")
+        boxPo = "-300 70 900 700";
+    } else if( 1400 < windowSize && windowSize <= 1660){
+        console.log("m")
+        boxPo = "-180 60 900 700";
+    } else if( windowSize <= 1400) {
+        console.log("s")
+        boxPo = "0 60 900 700";
+    }else{
+        console.log("크기는 ?")
+        console.log(window.innerWidth)
     }
+
     myChart
         .attr("viewBox", boxPo)
 
