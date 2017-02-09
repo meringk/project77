@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MERING</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../../stylesheets/common.css" />
+	<link rel="stylesheet" href="../stylesheets/write.css" />
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Header -->
+                <!-- titleBar -->
+                <div id="titlebarSection"></div>
+
+                <section id="write_section">
+                    <div id="write_inner">
+
+	<h1 class="header-a-logo">
+		글 등록<br>
+	</h1>
+	<div class="select-wrapper">
+		<select name="category" id="category" class="category">
+			<option value="">CATEGORY</option>
+			<option value="001001">TRIP</option>
+			<option value="001002">FOOD</option>
+			<option value="001003">DAY</option>
+			<option value="">-----------</option>
+			<option value="002001">PROJECT</option>
+			<option value="002002">LINUX</option>
+			<option value="002003">NODEJS</option>
+			<option value="002004">DATABASE</option>
+			<option value="002005">FRONT</option>
+		</select>
+	</div>
+	<br>
+
+	<div class="title-div">
+		<input class="title" id="title" type="text" placeholder="TITLE">
+	</div>
+
+	<div class="file">
+            <form method="post" id="FILE_FORM" enctype="multipart/form-data">
+				<div class="file_div">
+					<span class="fileUpload" id="fileUpload">이미지추가</span> 
+					<input type="file" name="FILE_TAG" id="FILE_TAG">
+				</div>
+				<!--<div class="buttonFile">
+                <a  href="javascript:uploadFile();">이미지추가</a>
+				</div>-->
+            </form>
+        </div>
+        <div class="preview" id="preview">
+    	</div>
+
+	<br />
+	<div class="adjoined-bottom">
+		<div class="grid-container">
+			<div class="grid-width-100">
+				<div id="editor">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="height:10px"></div>
+	<div class="button-div">
+		<a class="button special" href="javascript:writeSubmit();" id="writeSubmit">글작성</a>
+		<a class="button special" href="javascript:modifySubmit();" id="modifySubmit">글수정</a>
+		<a class="button"  href="javascript:goHistory();" >취소</a>
+	</div>
+
+</div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- sidebar -->
+        <div id="sidebarSection" class="inactive"></div>
+
+    </div>
+
+<script src="../../javascripts/common/jquery.min.js"></script>
+<script>	
+        (function ($) {
+            $('#titlebarSection').load("/html/titlebar.html");
+        })(jQuery);		
+</script>
+<script>	
+        (function ($) {
+            $('#sidebarSection').load("/html/sidebar.html");
+        })(jQuery);		
+</script>
+<script src="../ckeditor/ckeditor.js"></script>
+<script src="../ckeditor/samples/js/sample.js"></script>
+<script src="../../javascripts/write.js"></script>
+<script src="../../javascripts/common/util.js"></script>
+<script>
+	initSample();
+</script>
+
+</body>
+</html>

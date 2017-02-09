@@ -1,5 +1,6 @@
 var trip = require('./blog/trip_controller'),
-    main = require('./main/main_controller');
+    main = require('./main/main_controller'),
+    write = require('./write/write_controller');
 
 module.exports = function (app) {
 
@@ -11,5 +12,6 @@ module.exports = function (app) {
     function init() {
         app.use('/trip', trip);
         app.use('/', main);
+        app.use('/write', write)
     }
 }

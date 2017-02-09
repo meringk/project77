@@ -4,12 +4,9 @@
     overflow: hidden;
     position:relative;
 }
-
-
-#main > .inner {
-    padding: 80px 35px;
-}
-
+    #main > .inner {
+		padding: 80px 35px;
+	}
 @media screen and (max-width: 736px) {
     #googleMap {
         cursor: default;
