@@ -20,6 +20,9 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
+
+		<div id="loginSection" class="inactive"></div>
+
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
@@ -134,6 +137,7 @@
 
 <!-- sidebar -->
 <div id="sidebarSection" class="inactive"></div>
+
 </div>
 
 <!-- Scripts -->
@@ -149,6 +153,14 @@
 		$('#sidebarSection').load("html/sidebar.html");
 	})(jQuery);		
 </script>
+<script>	
+	(function ($) {
+		$('#loginSection').load("html/login.html");
+	})(jQuery);		
+</script>
+
+
+
 <script src ="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.js"></script>
 <script src="javascripts/common/skel.min.js"></script>
 <script src="javascripts/typed.js" type="text/javascript"></script>

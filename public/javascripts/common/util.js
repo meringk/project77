@@ -1,5 +1,6 @@
 (function ($) {
 
+
     var $window = $(window),
         $body = $('body');
 
@@ -33,13 +34,22 @@
             $body.removeClass('is-loading');
             //코드를 다 부른 뒤(window.on.load)에 처리해야한다. (element들이 전부 load되고)
             var $toggle = $('.toggle'),
-                $sidebarSection = $('#sidebarSection');
+                $login = $('.login'),
+                $sidebarSection = $('#sidebarSection'),
+                $loginSection = $('#loginSection');
 
             // sidebar 나타내는 toggle 버튼 flag
             $toggle[0].onclick = function () {
                 $sidebarSection.toggleClass("inactive");
                 $body.toggleClass("side-on");
             }
+
+            $login[0].onclick = function () {
+                console.log("ㅇㅇ로그인버튼")
+                $loginSection.toggleClass("inactive");
+                $body.toggleClass("side-on");
+            }
+            
 
             // click 이벤트 외의 별도의 브라우저 행동을 막는다. (bubble UP막기)
             $sidebarSection.on('click touchend touchstart touchmove', function (event) {
@@ -49,9 +59,18 @@
                 event.stopPropagation();
             });
 
-            // 바디 터치시 사이드바 숨김
+            // login창 bubble up막기
+             $loginSection.on('click touchend touchstart touchmove', function (event) {
+                event.stopPropagation();
+            });
+            $login.on('click touchend touchstart touchmove', function (event) {
+                event.stopPropagation();
+            });
+
+            // 바디 터치시 숨김
             $body.on('click touchend', function (event) {
                 $sidebarSection.addClass('inactive');
+                $loginSection.addClass('inactive');
             });
 
         }, 100);

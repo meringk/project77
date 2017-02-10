@@ -166,9 +166,6 @@
                 leave: function () { $(this).addClass('inactive'); }
             });
 
-            
-        
-
 
         // Guestbook.
         $('#three')

@@ -13,6 +13,8 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 </head>
 <body>
     <div id="wrapper">
+
+		<div id="loginSection" class="inactive"></div>
         <!-- Main -->
         <div id="main">
             <div class="inner">
@@ -99,6 +101,12 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
             $('#sidebarSection').load("/html/sidebar.html");
         })(jQuery);		
 </script>
+<script>	
+	(function ($) {
+		$('#loginSection').load("/html/login.html");
+	})(jQuery);		
+</script>
+
 <script src="../ckeditor/ckeditor.js"></script>
 <script src="../ckeditor/samples/js/sample.js"></script>
 <script src="../../javascripts/write.js"></script>
