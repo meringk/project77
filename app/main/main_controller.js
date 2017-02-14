@@ -7,39 +7,8 @@ var g_idx = 0;
 
 
 //네이버로그인
-
-// var client_id = 'E9pMRy_OGTUOp3FORXZ3';
-// var client_secret = 'D8zx4ZgXYr';
-// var state = "RANDOM_STATE";
-// var redirectURI = encodeURI("http://meringk.com/naver_login_success_page.html");
-
-
-
-
-// var api_url  = encodeURI("http://meringk.com/naver_login_success_page.html");
-
-
-
 router.get('/naver_login_success', function(req, res){
-
     res.redirect('http://meringk.com/html/naver_login_success_page.html');
-
-
-    // console.log(req.query)
-    // var request = require('request');
-    // var options = {
-    //     url: api_url,
-    //     headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
-    //  };
-    // request.get(options, function (error, response, body) {
-    //   if (!error && response.statusCode == 200) {
-    //     res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-    //     res.end(body);
-    //   } else {
-    //     res.status(response.statusCode).end();
-    //     console.log('error = ' + response.statusCode);
-    //   }
-    // });
 });
 
 
