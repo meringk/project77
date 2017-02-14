@@ -9,7 +9,7 @@ var g_idx = 0;
 //네이버로그인
 
 var client_id = 'E9pMRy_OGTUOp3FORXZ3';
-var client_secret = 'XZyN3xGlQL';
+var client_secret = 'D8zx4ZgXYr';
 var state = "RANDOM_STATE";
 var redirectURI = encodeURI("http://www.meringk.com/naver_login_success_page.html");
 var api_url = "";
