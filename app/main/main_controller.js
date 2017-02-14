@@ -14,7 +14,7 @@ var state = "RANDOM_STATE";
 var redirectURI = encodeURI("http://www.meringk.com/naver_login_success_page.html");
 var api_url = "";
 router.get('/naver_login_success', function(req, res){
-    console.log("#333333333333333")
+    console.log(req)
     code = req.query.code;
     state = req.query.state;
     api_url = 'https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id='
