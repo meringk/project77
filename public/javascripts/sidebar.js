@@ -85,6 +85,17 @@ sign_up = function () {
     }
 }
 
+
+signIn_naver = function () {
+    var naver_id_login = new naver_id_login("E9pMRy_OGTUOp3FORXZ3", "http://www.meringk.com/naver_login_success");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("http://www.meringk.com");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+}
+
 // function Joinvalidation(param) {
 //     var chk = true;
 //     if (param.id == "") {

@@ -1,3 +1,4 @@
+<script src="/javascripts/common/naverLogin_implicit-1.0.2-min.js"></script>
 <!-- Sidebar -->
 <div id="sidebar">
     <div class="inner">
@@ -5,7 +6,18 @@
         <input type="password" name="passwd" id="passwd" placeholder="Password">
         <button class="btn_login" onclick="login()">LOGIN</button>
         <button class="btn_signup" onclick="signup()">SIGNUP</button>
-        
+        <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+        <div id="naver_id_login"></div>
+        <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+        <script type="text/javascript">
+            var naver_id_login = new naver_id_login("E9pMRy_OGTUOp3FORXZ3", "http://www.meringk.com/naver_login_success");
+            var state = naver_id_login.getUniqState();
+            naver_id_login.setButton("white", 2,40);
+            naver_id_login.setDomain("http://www.meringk.com");
+            naver_id_login.setState(state);
+            naver_id_login.setPopup();
+            naver_id_login.init_naver_id_login();
+        </script>
     </div>
 </div>
 <link rel="stylesheet" href="/stylesheets/sidebar.css" />
