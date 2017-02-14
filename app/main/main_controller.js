@@ -11,8 +11,10 @@ var g_idx = 0;
 var client_id = 'E9pMRy_OGTUOp3FORXZ3';
 var client_secret = 'D8zx4ZgXYr';
 var state = "RANDOM_STATE";
-var redirectURI = encodeURI("http://www.meringk.com/naver_login_success_page.html");
+var redirectURI = encodeURI("http://meringk.com/naver_login_success_page.html");
 var api_url = "";
+
+
 router.get('/naver_login_success', function(req, res){
     console.log(req)
     code = req.query.code;
