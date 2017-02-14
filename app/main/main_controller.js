@@ -22,7 +22,7 @@ var g_idx = 0;
 
 router.get('/naver_login_success', function(req, res){
 
-    res.redirect('http://meringk.com/naver_login_success_page.html');
+    res.redirect('http://meringk.com/html/naver_login_success_page.html');
 
 
     // console.log(req.query)
