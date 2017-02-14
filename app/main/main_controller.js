@@ -7,6 +7,12 @@ var g_idx = 0;
 
 
 //네이버로그인
+
+var client_id = 'E9pMRy_OGTUOp3FORXZ3';
+var client_secret = 'XZyN3xGlQL';
+var state = "RANDOM_STATE";
+var redirectURI = encodeURI("http://www.meringk.com/naver_login_success");
+var api_url = "";
 router.get('/naver_login_success', function(req, res){
     console.log("#333333333333333")
     code = req.query.code;
