@@ -6,11 +6,12 @@ var mainService = require('./main_service.js');
 var g_idx = 0;
 
 
-//네이버로그인
-router.get('/naver_login_success', function(req, res){
-    console.log("#333333333333333")
-    console.log(req.body);
-});
+// //네이버로그인
+// router.get('/naver_login_success', function(req, res){
+//     console.log("#333333333333333")
+//     console.log(req);
+//     console.log(req.url);
+// });
 
 
 //방명록리스트
