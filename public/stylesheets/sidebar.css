@@ -227,7 +227,15 @@
 	position:fixed;
 	width:175px;
 	padding-left: 25px;
+
+	-webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 }
+
+
 
 #loginSection input{
 	padding: 15px 10px;
@@ -291,20 +299,39 @@
 
 .login_init{
 	display:none;
-	margin-top: 55px;
+	position:fixed;
+	margin: 50px 15px 0px;
 }
 
 #sidebar.active .login_init{
 	display:block;
 }
 
-
-
 .div_sign_up{
-	display:none;
-	margin-top: 55px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+	top: 70px;
+	position:fixed;
+	width:135px;
+	padding-left: 25px;
+	right: -140px;
 }
 
 #sidebar.active .div_sign_up{
-	display:block;
+
+	width:190px;
+	position:fixed;
+	-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
+	-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
+	-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
+	transition: transform 0.75s ease, opacity 0.75s ease;
+
+    -moz-transform: translateX(-150px);
+    -webkit-transform: translateX(-150px);
+    -ms-transform: translateX(-150px);
+    transform: translateX(-150px);
+
 }

@@ -51,6 +51,10 @@ sign_up_section = function(){
     $('#sidebar').addClass("active");
 };
 
+back = function(){
+    $('#sidebar').removeClass("active");
+}
+
 sign_up = function () {
     var id = $('.cont_form_sign_up').find("input[name='id']").val();
     var userName = $('.cont_form_sign_up').find("input[name='userName']").val();
@@ -88,6 +92,7 @@ sign_up = function () {
         }
     }
 }
+
 
 
 signIn_naver = function () {
