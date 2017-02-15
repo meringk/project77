@@ -1,4 +1,11 @@
 (function ($) {
+    //양 옆 (메뉴, 로그인 section)
+    $('#sidebarSection').load("/html/sidebar.html");
+    $('#titlebarSection').load("/html/titlebar.html");
+    $('#loginSection').load("/html/login.html");
+})(jQuery);
+
+(function ($) {
 
 
     var $window = $(window),
@@ -24,7 +31,7 @@
         time.moon = moon;
         return time;
     }
-    
+
     // Disable animations/transitions until the page has loaded.
     $body.addClass('is-loading');
 
@@ -49,7 +56,7 @@
                 $loginSection.toggleClass("inactive");
                 $body.toggleClass("side-on");
             }
-            
+
 
             // click 이벤트 외의 별도의 브라우저 행동을 막는다. (bubble UP막기)
             $sidebarSection.on('click touchend touchstart touchmove', function (event) {
@@ -60,7 +67,7 @@
             });
 
             // login창 bubble up막기
-             $loginSection.on('click touchend touchstart touchmove', function (event) {
+            $loginSection.on('click touchend touchstart touchmove', function (event) {
                 event.stopPropagation();
             });
             $login.on('click touchend touchstart touchmove', function (event) {

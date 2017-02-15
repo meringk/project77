@@ -1,23 +1,32 @@
 <script src="/javascripts/common/naverLogin_implicit-1.0.2-min.js"></script>
 <!-- Sidebar -->
 <div id="sidebar">
+    <div class="login_init">back</div>
     <div class="inner">
-        <input type="text" name="userName" id="userName" placeholder="UserName">
-        <input type="password" name="passwd" id="passwd" placeholder="Password">
+        <input type="text" name="userId" id="userId" placeholder="ID">
+        <input type="password" name="passwd" id="passwd" placeholder="PASSWORD">
         <button class="btn_login" onclick="login()">LOGIN</button>
-        <button class="btn_signup" onclick="signup()">SIGNUP</button>
+        <button class="btn_signup" onclick="sign_up_section()">SIGNUP</button>
         <!-- 네이버아이디로로그인 버튼 노출 영역 -->
         <div id="naver_id_login"></div>
         <!-- //네이버아이디로로그인 버튼 노출 영역 -->
         <script type="text/javascript">
             var naver_id_login = new naver_id_login("E9pMRy_OGTUOp3FORXZ3", "http://meringk.com/naver_login_success");
             var state = naver_id_login.getUniqState();
-            naver_id_login.setButton("white", 2,40);
+            naver_id_login.setButton("green", 3, 38);
             naver_id_login.setDomain("http://meringk.com");
             naver_id_login.setState(state);
             naver_id_login.setPopup();
             naver_id_login.init_naver_id_login();
         </script>
+    </div>
+
+    <div class="div_sign_up">
+        <input type="text" name="s_userId" id="s_userId" placeholder="ID">
+        <input type="password" name="s_passwd" id="s_passwd" placeholder="PASSWORD">
+        <input type="password" name="s_passwd_confirm" id="s_passwd_confirm" placeholder="PASSWORD_CONFIRM">
+        <input type="text" name="s_userName" id="s_userName" placeholder="이름">
+        <button class="btn_signup" onclick="sign_up_section()">가입</button>
     </div>
 </div>
 <link rel="stylesheet" href="/stylesheets/sidebar.css" />

@@ -47,6 +47,10 @@ login = function () {
     });
 }
 
+sign_up_section = function(){
+    $('#sidebar').addClass("active");
+};
+
 sign_up = function () {
     var id = $('.cont_form_sign_up').find("input[name='id']").val();
     var userName = $('.cont_form_sign_up').find("input[name='userName']").val();
@@ -183,7 +187,6 @@ signup = function () {
     $('.cont_login').css("top", "0px");
     $('.cont_login').css("left", ($(window).width()-$(".col_md_login").width()));
     $('.cont_login').addClass("active");
-	
 };
 
 $('.cont_login .close').click(function () {

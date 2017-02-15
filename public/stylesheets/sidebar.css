@@ -225,7 +225,86 @@
 #loginSection .inner{
 	top: 70px;
 	position:fixed;
-	width:135px;
+	width:175px;
 	padding-left: 25px;
 }
 
+#loginSection input{
+	padding: 15px 10px;
+    border: 1px solid #ccc;
+	margin: 5px 0px;
+    width: 90%;
+    height: 5px;
+    display: block;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #aaa;
+    font-family: 'Lato', sans-serif;
+}
+
+.btn_login { 
+    background-color: #26C6DA;
+    border: none;
+    padding: 10px;
+    border-radius:3px;
+    box-shadow: 1px 5px 20px -5px rgba(0,0,0,0.4);
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn_signup { 
+    background-color: #ef5350;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius:3px;
+    box-shadow: 1px 5px 20px -5px rgba(0,0,0,0.4);
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#naver_id_login{
+	height: 35px;
+	margin-top: 10px;
+	box-shadow: 1px 5px 20px -5px rgba(0,0,0,0.4);
+}
+
+#naver_id_login a{
+	border : none;
+}
+
+
+#sidebar.active .inner {
+	-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
+	-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
+	-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
+	transition: transform 0.75s ease, opacity 0.75s ease;
+
+	-moz-transform: translateX(430px);
+	-webkit-transform: translateX(430px);
+	-ms-transform: translateX(430px);
+	transform: translateX(430px);
+}
+
+.login_init{
+	display:none;
+	margin-top: 55px;
+}
+
+#sidebar.active .login_init{
+	display:block;
+}
+
+
+
+.div_sign_up{
+	display:none;
+	margin-top: 55px;
+}
+
+#sidebar.active .div_sign_up{
+	display:block;
+}
