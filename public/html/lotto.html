@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MERING</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../stylesheets/common.css" />
+    <style>
+        .btn_lotto {
+            margin: 80px 25px 0px;
+            background-color: #26C6DA;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            box-shadow: 1px 5px 20px -5px rgba(0,0,0,0.4);
+            color: #fff;
+            cursor: pointer;
+            width: 300px;
+        }
+
+        .div_lotto{
+            margin : 25px;
+            font-weight: 600;
+            font-size: 60px;
+            color:black
+        }
+
+        .lotto_circle{
+            background-color: #c1dff1;
+            width:100px;
+            height: 85px;
+            float:left;
+            margin:20px;
+            text-align:center;
+            padding-top: 15px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <div id="loginSection" class="inactive"></div>
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Header -->
+                <!-- titleBar -->
+                <div id="titlebarSection"></div>
+                <button class="btn_lotto" onclick="lotto()">로또번호추출</button>
+                <div class="div_lotto"></div>
+
+            </div>
+        </div>
+
+        <!-- sidebar -->
+        <div id="sidebarSection" class="inactive"></div>
+
+    </div>
+
+    <script src="../../javascripts/common/jquery.min.js"></script>
+    <script src="../../javascripts/common/util.js"></script>
+    <script>
+
+    lotto = function(){
+        var lotto_num = [];
+        var unique_lotto_num =[];
+
+        go_lotto();
+
+        function go_lotto(){
+            lotto_num=[];
+            $('.div_lotto')[0].innerHTML ="";
+            for(var i=0; i < 6; i++){
+                var result = Math.floor(Math.random() * 36) + 1;
+                lotto_num[i] = result;
+                $('.div_lotto')[0].innerHTML += "  <div class='lotto_circle'> " + result + "</div>";
+            }
+        }
+        $.each(lotto_num, function(i, el){
+            if($.inArray(el, unique_lotto_num) === -1) unique_lotto_num.push(el);
+        });
+
+        if(unique_lotto_num.length != 6) {
+            go_lotto();
+        }
+    };
+
+    </script>
+
+</body>
+
+</html>
