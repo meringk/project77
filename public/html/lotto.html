@@ -76,16 +76,21 @@
             for(var i=0; i < 6; i++){
                 var result = Math.floor(Math.random() * 36) + 1;
                 lotto_num[i] = result;
-                $('.div_lotto')[0].innerHTML += "  <div class='lotto_circle'> " + result + "</div>";
+               // $('.div_lotto')[0].innerHTML += "  <div class='lotto_circle'> " + result + "</div>";
             }
-        }
-        $.each(lotto_num, function(i, el){
-            if($.inArray(el, unique_lotto_num) === -1) unique_lotto_num.push(el);
-        });
 
+            $.each(lotto_num, function(i, el){
+                if($.inArray(el, unique_lotto_num) === -1) unique_lotto_num.push(el);
+            });
+        }
         if(unique_lotto_num.length != 6) {
             go_lotto();
         }
+
+        for(var i=0; i < 6; i++){
+            $('.div_lotto')[0].innerHTML += "  <div class='lotto_circle'> " + unique_lotto_num[i] + "</div>";
+        }
+
     };
 
     </script>
