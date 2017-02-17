@@ -36,6 +36,10 @@
             padding-top: 15px;
             border-radius: 50%;
         }
+
+        #lottok{
+            margin: 80px 25px 0px;
+        }
     </style>
 </head>
 
@@ -49,12 +53,12 @@
                 <!-- Header -->
                 <!-- titleBar -->
                 <div id="titlebarSection"></div>
+                <div id="lottok">loading...</div>
                 <button class="btn_lotto" onclick="lotto()">로또번호추출</button>
                 <div class="div_lotto"></div>
-
             </div>
         </div>
-
+        
         <!-- sidebar -->
         <div id="sidebarSection" class="inactive"></div>
 
@@ -62,6 +66,19 @@
 
     <script src="../../javascripts/common/jquery.min.js"></script>
     <script src="../../javascripts/common/util.js"></script>
+
+    
+    <script type="text/javascript">
+    function loadlot(a) {
+        console.log(a)
+        lotpane = document.getElementById('lottok');
+        lotpane.innerHTML = '제 <span style="color: green;"><b>' +
+            a.gno + '</b></span>회 (' + a.gdate + ')<br /><b><span style="color: red;">' + 
+            a.nums + '</span> / <span style="color: blue;">' + a.bnum + '</span></b>';
+        }
+    </script>
+    <script type="text/javascript" src="http://lotto.kaisyu.com/api?method=get&callback=loadlot">
+    </script>
     <script>
 
     lotto = function(){
