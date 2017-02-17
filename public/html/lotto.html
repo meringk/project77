@@ -39,6 +39,11 @@
 
         #lottok{
             margin: 80px 25px 0px;
+            background-color: #e9f0f1;
+            padding: 20px;
+            border-radius: 6px;
+            font-size: 25px;
+                text-align: center;
         }
     </style>
 </head>
@@ -72,9 +77,9 @@
     function loadlot(a) {
         console.log(a)
         lotpane = document.getElementById('lottok');
-        lotpane.innerHTML = '제 <span style="color: green;"><b>' +
-            a.gno + '</b></span>회 (' + a.gdate + ')<br /><b><span style="color: red;">' + 
-            a.nums + '</span> / <span style="color: blue;">' + a.bnum + '</span></b>';
+        lotpane.innerHTML = '<span>저번주 당첨번호 !</span><br>제 <span style="color: green;"><b>' +
+            a.gno + '</b></span>회 (' + a.gdate + ')<br /><b><span style="color: #e83131;">' + 
+            a.nums + '</span> / <span style="color: #0084e4;">' + a.bnum + '</span></b>';
         }
     </script>
     <script type="text/javascript" src="http://lotto.kaisyu.com/api?method=get&callback=loadlot">
