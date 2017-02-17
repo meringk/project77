@@ -235,6 +235,29 @@
     transition: all 0.5s;
 }
 
+#loginSection .div_sign_up{
+	position:fixed;
+	top: 70px;
+	width:135px;
+	padding-left: 25px;
+	/*right: -140px;*/
+
+	-webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+
+	-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
+	-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
+	-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
+	transition: transform 0.75s ease, opacity 0.75s ease;
+
+	-moz-transform: translateX(430px);
+	-webkit-transform: translateX(430px);
+	-ms-transform: translateX(430px);
+	transform: translateX(430px);
+}
 
 
 #loginSection input{
@@ -307,31 +330,29 @@
 	display:block;
 }
 
-.div_sign_up{
+/*.div_sign_up{
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
 	top: 70px;
-	position:fixed;
 	width:135px;
 	padding-left: 25px;
 	right: -140px;
-}
+}*/
 
 #sidebar.active .div_sign_up{
 
 	width:190px;
-	position:fixed;
 	-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
 	-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
 	-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
 	transition: transform 0.75s ease, opacity 0.75s ease;
 
-    -moz-transform: translateX(-150px);
-    -webkit-transform: translateX(-150px);
-    -ms-transform: translateX(-150px);
-    transform: translateX(-150px);
+	-moz-transform: translateX(0px);
+	-webkit-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
 
 }
