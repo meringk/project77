@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MERING</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../stylesheets/common.css" />
+    <link rel="stylesheet" href="../../stylesheets/chat.css" />
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <div id="loginSection" class="inactive"></div>
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Header -->
+                <!-- titleBar -->
+                <div id="titlebarSection"></div>
+                <div class="chatSection">
+                    <div class="chatBox"></div>
+                    <div class="chatMsg">
+                        <input type="text" id="message"></input>
+                        <input type="button" value="enter" id="enter"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- sidebar -->
+        <div id="sidebarSection" class="inactive"></div>
+
+    </div>
+
+    <script src="../../javascripts/common/jquery.min.js"></script>
+    <script src="../../javascripts/common/util.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="../../javascripts/chat.js"></script>
+</body>
+
+</html>
