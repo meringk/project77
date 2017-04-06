@@ -74,8 +74,8 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 	</div>
 	<div style="height:10px"></div>
 	<div class="button-div">
-		<a class="button special" href="javascript:writeSubmit();" id="writeSubmit">글작성</a>
-		<a class="button special" href="javascript:modifySubmit();" id="modifySubmit">글수정</a>
+		<a class="button special" href="javascript:ready_ing2();" id="writeSubmit">글작성</a>
+		<a class="button special" href="javascript:ready_ing2();" id="modifySubmit">글수정</a>
 		<a class="button"  href="javascript:goHistory();" >취소</a>
 	</div>
 
@@ -97,6 +97,9 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 <script src="../../javascripts/common/util.js"></script>
 <script>
 	initSample();
+	ready_ing2 = function(){
+		alert("쓰지마");
+	}
 </script>
 
 </body>
